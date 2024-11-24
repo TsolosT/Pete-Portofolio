@@ -1,13 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import {
-  faGithub,
-  faLinkedin,
-  faMedium,
-  faStackOverflow,
-} from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack, Link } from "@chakra-ui/react";
+import { faGithub, faLinkedin, faMedium, faStackOverflow } from "@fortawesome/free-brands-svg-icons";
+import { Box, HStack, Link, VStack } from "@chakra-ui/react";
 
 const socials = [
   {
@@ -38,9 +33,9 @@ const Header = () => {
 
   const handleScroll = () => {
     if (window.scrollY > prevScrollY.current) {
-      setHeaderVisible(false); // Hide the header on scroll down
+      setHeaderVisible(false); // Hide
     } else {
-      setHeaderVisible(true); // Show the header on scroll up
+      setHeaderVisible(true); // Show 
     }
     prevScrollY.current = window.scrollY;
   };
@@ -73,9 +68,16 @@ const Header = () => {
       zIndex={10}
     >
       <Box color="white" maxWidth="1280px" margin="0 auto">
-        <HStack px={16} py={4} justifyContent="space-between" alignItems="center">
+        <HStack
+          px={4}
+          py={4}
+          justifyContent="space-between"
+          alignItems="center"
+          direction={{ base: "column", md: "row" }}
+        >
+          {/* Socials */}
           <nav>
-            <HStack spacing={4}>
+            <HStack spacing={4} justify="center" wrap="wrap">
               {socials.map((social, index) => (
                 <Link
                   key={index}
@@ -90,12 +92,14 @@ const Header = () => {
               ))}
             </HStack>
           </nav>
+
+          {/* Navigation Links */}
           <nav>
-            <HStack spacing={8}>
+            <HStack spacing={8} display={{ base: "none", md: "flex" }}>
               <Link
                 href="#projects-section"
                 onClick={handleClick("projects")}
-                _hover={{ color: "blue.400"}}
+                _hover={{ color: "blue.400" }}
                 cursor="pointer"
               >
                 Projects
@@ -109,6 +113,25 @@ const Header = () => {
                 Contact Me
               </Link>
             </HStack>
+            {/* Mobile Navbar Toggle */}
+            <VStack display={{ base: "flex", md: "none" }} align="center" mt={4}>
+              <Link
+                href="#projects-section"
+                onClick={handleClick("projects")}
+                _hover={{ color: "blue.400" }}
+                cursor="pointer"
+              >
+                Projects
+              </Link>
+              <Link
+                href="#contactme-section"
+                onClick={handleClick("contactme")}
+                _hover={{ color: "blue.400" }}
+                cursor="pointer"
+              >
+                Contact Me
+              </Link>
+            </VStack>
           </nav>
         </HStack>
       </Box>

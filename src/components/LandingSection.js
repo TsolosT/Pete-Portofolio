@@ -1,13 +1,7 @@
 import React from "react";
-import { Avatar, Heading, VStack,  } from "@chakra-ui/react";
+import { Avatar, Heading, VStack } from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
 
-const greeting = "Hello, I am Pete!";
-const bio1 = "A frontend developer";
-const bio2 = "specialised in React";
-
-// Implement the UI for the LandingSection component according to the instructions.
-// Use a combination of Avatar, Heading and VStack components.
 const LandingSection = () => (
   <FullScreenSection
     justifyContent="center"
@@ -15,13 +9,38 @@ const LandingSection = () => (
     isDarkBackground
     backgroundColor="#2A4365"
   >
-    <VStack align="center" spacing={4}>
-      <Avatar size="xl" src="https://i.pravatar.cc/150?img=7" />
-      <Heading as='h2' size='l'>{greeting}</Heading>
-      <Heading as='h1' size='4xl' >{bio1}</Heading>
-      <Heading as='h1' size='4xl' >{bio2}</Heading>
-  </VStack>
-
+    <VStack align="center" spacing={4} px={4}>
+      <Avatar
+        size="xl"
+        src="https://i.pravatar.cc/150?img=7"
+        className="scale-in"
+        style={{ animationDelay: "0.2s" }}
+      />
+      <Heading
+        as="h2"
+        size={{ base: "md", md: "lg" }}
+        className="fade-in-up"
+        style={{ animationDelay: "0.4s" }}
+      >
+        Hello, I am Pete!
+      </Heading>
+      <Heading
+        as="h1"
+        size={{ base: "xl", md: "4xl" }}
+        className="fade-in-up"
+        style={{ animationDelay: "0.9s" }}
+      >
+        A frontend developer
+      </Heading>
+      <Heading
+        as="h1"
+        size={{ base: "xl", md: "4xl" }}
+        className="fade-in-up"
+        style={{ animationDelay: "1.1s" }}
+      >
+        specialised in React
+      </Heading>
+    </VStack>
   </FullScreenSection>
 );
 

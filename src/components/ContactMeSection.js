@@ -55,18 +55,22 @@ const ContactMeSection = () => {
   
       return () => clearTimeout(timer); 
     }
-  }, [response]); 
-  
+  }, [response]);
 
   return (
     <FullScreenSection
       isDarkBackground
       backgroundColor="#2A4365"
-      py={16}
+      py={{ base: 8, md: 16 }} 
       spacing={8}
     >
-      <VStack w="1024px" p={32} alignItems="flex-start">
-        <Heading as="h1" id="contactme-section">
+      <VStack
+        w={{ base: "100%", sm: "90%", md: "80%", lg: "1024px" }} // Adjust width based on screen size
+        p={{ base: 4, sm: 8, md: 32 }} // Adjust padding based on screen size
+        alignItems="flex-start"
+        spacing={6}
+      >
+        <Heading as="h1" id="contactme-section" fontSize={{ base: "2xl", md: "3xl" }}>
           Contact me
         </Heading>
         <Box p={6} rounded="md" w="100%">
@@ -79,6 +83,7 @@ const ContactMeSection = () => {
                   id="firstName"
                   name="firstName"
                   {...formik.getFieldProps("firstName")}
+                  isFullWidth
                 />
                 <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
               </FormControl>
@@ -91,6 +96,7 @@ const ContactMeSection = () => {
                   name="email"
                   type="email"
                   {...formik.getFieldProps("email")}
+                  isFullWidth
                 />
                 <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
               </FormControl>
@@ -103,10 +109,11 @@ const ContactMeSection = () => {
                   name="type"
                   placeholder="Select type"
                   {...formik.getFieldProps("type")}
+                  isFullWidth
                 >
-                  <option style={{ backgroundColor: "#2A4365", color: "white" }} value="hireMe">Freelance project proposal</option>
-                  <option style={{ backgroundColor: "#2A4365", color: "white" }} value="openSource">Open source consultancy session</option>
-                  <option style={{ backgroundColor: "#2A4365", color: "white" }} value="other">Other</option>
+                  <option value="hireMe">Freelance project proposal</option>
+                  <option value="openSource">Open source consultancy session</option>
+                  <option value="other">Other</option>
                 </Select>
                 <FormErrorMessage>{formik.errors.type}</FormErrorMessage>
               </FormControl>
@@ -117,8 +124,9 @@ const ContactMeSection = () => {
                 <Textarea
                   id="comment"
                   name="comment"
-                  height={250}
+                  height={{ base: 200, sm: 250 }} // Adjust height based on screen size
                   {...formik.getFieldProps("comment")}
+                  isFullWidth
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
