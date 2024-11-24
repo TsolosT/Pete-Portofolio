@@ -46,18 +46,17 @@ const ContactMeSection = () => {
   // Handle API response to show success or error alerts
   useEffect(() => {
     if (response) {
-      // Check if the response is success or error
+      onOpen(response.type, response.message); 
       if (response.type === "success") {
-        onOpen(response.type, response.message); // Open success alert
-        formik.resetForm(); // Reset form after successful submission
-        setTimeout(() => onClose(), 3000); // Close alert after 3 seconds
-      } else if (response.type === "error") {
-        onOpen(response.type, response.message); // Open error alert
-        setTimeout(() => onClose(), 3000); // Close alert after 3 seconds
+        formik.resetForm();
       }
+      // Automatically close the alert after 3 seconds
+      const timer = setTimeout(() => onClose(), 3000);
+  
+      return () => clearTimeout(timer); 
     }
-  }, [response, formik, onOpen, onClose]); // Only run when `response` changes
-
+  }, [response]); 
+  
 
   return (
     <FullScreenSection
