@@ -83,7 +83,7 @@ const ContactMeSection = () => {
                   id="firstName"
                   name="firstName"
                   {...formik.getFieldProps("firstName")}
-                  isFullWidth
+                  
                 />
                 <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
               </FormControl>
@@ -96,7 +96,7 @@ const ContactMeSection = () => {
                   name="email"
                   type="email"
                   {...formik.getFieldProps("email")}
-                  isFullWidth
+                  
                 />
                 <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
               </FormControl>
@@ -109,7 +109,7 @@ const ContactMeSection = () => {
                   name="type"
                   placeholder="Select type"
                   {...formik.getFieldProps("type")}
-                  isFullWidth
+                  
                 >
                   <option value="hireMe">Freelance project proposal</option>
                   <option value="openSource">Open source consultancy session</option>
@@ -126,7 +126,7 @@ const ContactMeSection = () => {
                   name="comment"
                   height={{ base: 200, sm: 250 }} // Adjust height based on screen size
                   {...formik.getFieldProps("comment")}
-                  isFullWidth
+                  
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>

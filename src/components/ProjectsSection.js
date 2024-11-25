@@ -32,7 +32,7 @@ const ProjectsSection = () => {
       backgroundColor="#F7FAFC"
       isDarkBackground
       p={{ base: 4, md: 8 }}
-      alignItems="flex-start"
+      alignItems="center"
       spacing={8}
     >
       <Heading
