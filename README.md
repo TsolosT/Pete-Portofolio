@@ -1,4 +1,4 @@
-# Support Ticket App
+# Pete Portofolio
 
 A React application with minimal functionality for Portofolio page.
 
